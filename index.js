@@ -48,6 +48,4 @@ async function index() {
 	}
 }
 
-// index();
-
-console.log(__dirname + '/.env');
+index();
