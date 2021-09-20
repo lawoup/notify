@@ -17,12 +17,14 @@ const sendNotification = async () => {
 	const tokensList =
 		tokens.length === 0 ? tokens.map((token) => token.token) : [];
 
-	await admin.messaging().sendToDevice(tokensList, {
-		notification: {
-			title: 'title',
-			body: 'message',
-		},
-	});
+	if (tokensList.length !== 0) {
+		await admin.messaging().sendToDevice(tokensList, {
+			notification: {
+				title: 'title',
+				body: 'message',
+			},
+		});
+	}
 };
 
 const connectDatabase = async () => {
