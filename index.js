@@ -13,8 +13,9 @@ let db;
 
 const sendNotification = async () => {
 	const tokens = db.collection('devicetokens').find({});
+	console.log(tokens);
 	const tokensList = tokens ? tokens.map((token) => token.token) : [];
-
+	console.log(tokensList);
 	await admin.messaging().sendToDevice(tokensList, {
 		notification: {
 			title: 'title',
@@ -35,7 +36,6 @@ const connectDatabase = async () => {
 async function index() {
 	try {
 		await connectDatabase();
-		console.log('Database connected');
 		await sendNotification();
 		console.log('Notifications sent');
 	} catch (error) {
