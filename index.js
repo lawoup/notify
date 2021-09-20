@@ -1,4 +1,6 @@
-require('dotenv').config();
+require('dotenv').config({
+	path: __dirname + '/.env',
+});
 const { MongoClient } = require('mongodb');
 var admin = require('firebase-admin');
 admin.initializeApp({
@@ -46,4 +48,6 @@ async function index() {
 	}
 }
 
-index();
+// index();
+
+console.log(__dirname + '/.env');
