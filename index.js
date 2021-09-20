@@ -13,7 +13,7 @@ let db;
 
 const sendNotification = async () => {
 	const tokens = db.collection('devicetokens').find({});
-	const tokensList = tokens.map((token) => token.token);
+	const tokensList = tokens ? tokens.map((token) => token.token) : [];
 
 	await admin.messaging().sendToDevice(tokensList, {
 		notification: {
