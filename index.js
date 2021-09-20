@@ -12,7 +12,7 @@ admin.initializeApp({
 let db;
 
 const sendNotification = async () => {
-	const tokens = db.collection('devicetokens').find({});
+	const tokens = db.collection('devicetokens').find({}).toArray();
 	console.log(tokens);
 	const tokensList = tokens ? tokens.map((token) => token.token) : [];
 	console.log(tokensList);
