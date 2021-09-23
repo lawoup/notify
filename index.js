@@ -43,6 +43,8 @@ async function index() {
 		await connectDatabase();
 		await sendNotification();
 		console.log('Notifications sent');
+
+		process.exit(1);
 	} catch (error) {
 		console.error(error);
 	}
