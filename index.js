@@ -17,9 +17,7 @@ const sendNotification = async () => {
 	const tokens = await db.collection('devicetokens').find({}).toArray();
 
 	const tokensList =
-		tokens.length === 0 ? tokens.map((token) => token.token) : [];
-
-	console.log(tokens);
+		tokens.length !== 0 ? tokens.map((token) => token.token) : [];
 
 	if (tokensList.length !== 0) {
 		await admin.messaging().sendToDevice(tokensList, {
