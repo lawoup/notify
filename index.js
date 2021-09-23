@@ -19,7 +19,7 @@ const sendNotification = async () => {
 	const tokensList =
 		tokens.length === 0 ? tokens.map((token) => token.token) : [];
 
-	console.log(tokensList);
+	console.log(tokens);
 
 	if (tokensList.length !== 0) {
 		await admin.messaging().sendToDevice(tokensList, {
